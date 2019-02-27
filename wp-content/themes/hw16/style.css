@@ -130,20 +130,8 @@ html { position: relative;
 
 @media only screen and (min-width: 948px) {
   .header__social-icons {
-    width: 145px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between; }
-  .header__social-icon {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center; } }
+    width: 185px;
+    display: flex; }}
 
 .main-menu,
 .site-navigation > input {
@@ -287,6 +275,12 @@ html { position: relative;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
+.social-icon__popup-link i,
+.social-icon__link:hover {
+  color: #c3a000; }
+.social-icon__popup-link i:hover,
+.social-icon__link{
+  color: #362f2f; }
 
 .img {
   width: 100%; }
@@ -463,7 +457,7 @@ html { position: relative;
 .block__text:nth-last-child(1) {
   padding-bottom: 0; }
 .block__img {
-  padding-right: 30px; }
+  margin-right: 30px; }
 .block__title, .block__text-title {
   font-family: "RobotoCondensed-Bold", "Helvetica", sans-serif;
   text-transform: uppercase; }
@@ -496,8 +490,6 @@ html { position: relative;
   color: #353535;
   font: 14px "RobotoCondensed-Regular", "Helvetica", sans-serif;
   list-style-type: square; }
-.block__list-item {
-  padding: 1px 0; }
 
 @media only screen and (min-width: 768px) {
   .block {
@@ -597,9 +589,7 @@ html { position: relative;
 .post {
   max-width: 750px;
   width: 100%; }
-.post__img {
-  max-height: 750px;
-  background-color: #000; }
+.post__main-img { max-width: 750px;}
 .post__text-container {
   padding: 20px 30px 20px 10px; }
 .post__text-container p {
@@ -822,7 +812,7 @@ html { position: relative;
   max-height: 720px;
   min-height: 100%;
   width: 100%;
-  margin: 0 10px 45px;
+  margin-bottom: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -903,7 +893,11 @@ html { position: relative;
   background-color: #362f2f;
   font: 12px/1 "RobotoCondensed-Regular", "Helvetica", sans-serif;
   text-transform: uppercase; }
-
+@media only screen and (min-width: 768px) {
+.blog__post {
+  margin-right: 10px;
+  margin-left: 10px;
+}}
 @media only screen and (min-width: 1155px) {
   .blog {
     -webkit-box-pack: justify;
@@ -1013,6 +1007,9 @@ html { position: relative;
 .portfolio__popup-shower:hover {
   opacity: 1;
 }
+.portfolio__photo {
+  height: inherit;
+}
 .portfolio__popup-closer {
   position: absolute;
   top: 0;
@@ -1060,48 +1057,39 @@ html { position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
-
 .portfolio__item:hover .portfolio__hover {
   opacity: .75;
   background: white;}
-
 .portfolio__popup-checkbox:checked + .portfolio__popup {
   display: block;
   opacity: 1; }
 
 .portfolio-slide {
-  display: none;
-}
+  display: none; }
 
 .cor .scrollD > *.active {
   display: block;
-  opacity: 1;
-}
+  opacity: 1; }
 
 .cor .scrollD .active {
-  display: block;
-}
+  display: block; }
 
 .cor:hover .arrow,
 .cor:hover .fs {
-  opacity: 0.6;
-}
+  opacity: 0.6; }
 
 .cor:hover .arrow:hover,
 .cor:hover .fs:hover {
-  opacity: 1;
-}
+  opacity: 1; }
 
 a {
   text-decoration: none;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 a:link,
 a:visited,
 a:active {
-  color: #000;
-}
+  color: #000; }
 
 .pagination {
   max-width: 400px;
@@ -1109,34 +1097,49 @@ a:active {
   margin: auto;
   display: flex;
   font: 12px "RobotoCondensed-Regular", "Helvetica", sans-serif;
-  text-transform: uppercase;
-}
-
+  text-transform: uppercase; }
 .pagination span, .pagination a {
   display:block;
   margin: auto;
   padding:5px 10px;
   width:auto;
   color: #fff;
-  background-color: #362f2f;
-}
-
+  background-color: #362f2f; }
 .pagination .current,
 .pagination .inactive {
   padding: 5px 10px;
   background: transparent;
-  color: #202020;
-}
+  color: #202020; }
 
 @media only screen and (min-width: 768px) {
   .pagination a,
   .pagination span,
   .pagination .current,
   .pagination .inactive {
-    padding: 15px 25px;
-  }
-}
+    padding: 15px 25px; }}
 
 .form-submit {
-  display: none;
+  display: none; }
+
+.wp-post-image {
+  min-width: 100%;
+  object-fit: cover; }
+
+.size-post-thumbnail {
+  height: 100%; }
+
+.size-news-small {
+  min-width: 70px; }
+
+.single-post__img {
+  width: 100%;
+  height: 100%; }
+
+.not-found {
+  padding: 100px 0;
+  color: #333333;
+  font: 18px "RobotoCondensed-Regular", "Helvetica", sans-serif;
+  text-align: center;}
+.not-found h1 {
+  font-size: 30px;
 }

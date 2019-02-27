@@ -5,7 +5,13 @@
   });
 
   add_action('wp_enqueue_scripts', function() {
+    wp_deregister_script('jquery');
+    wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+  });
+
+  add_action('wp_enqueue_scripts', function() {
     wp_enqueue_script( 'hw16-sc-script', get_template_directory_uri() . '/js/sc.min.js');
+    wp_enqueue_script( 'hw16-gallery-script', get_template_directory_uri() . '/js/gallery.js');
   });
 
   add_action( 'wp_enqueue_scripts', 'enqueue_load_fa' );
@@ -15,13 +21,21 @@
 
   if (function_exists('add_theme_support')) {
     add_theme_support('menus');
+    add_theme_support( 'post-thumbnails' );
+    add_image_size( 'news-small', 70, 70, true);
+    add_image_size( 'gallery-medium', 380, 380, true);
+    add_image_size( 'blog-medium', 360, 360, true);
+    add_image_size( 'post-large', 750, 750, true);
+    add_image_size( 'gallery-large', 880, 880, true);
   }
 
-  add_action( 'after_setup_theme', 'theme_register_nav_menu' );
-    function theme_register_nav_menu() {
-      register_nav_menu( 'primary', 'Menu' );
-  }
-
+  add_action( 'after_setup_theme', 'theme_register_nav_menus' );
+    function theme_register_nav_menus() {
+      register_nav_menus( array(
+        'header-menu' => __( 'Header Menu' ),
+        'social-menu' => __( 'Social Menu' )
+      ));
+    }
 
   function create_post_type() {
     register_post_type( 'news',
@@ -35,7 +49,7 @@
         ),
         'public' => true,
         'has_archive' => true,
-        'support' => array ('title','editor', 'thumbnail'),
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats' ),
         'query_var' => false
       )
     );
@@ -51,7 +65,7 @@
         ),
         'public' => true,
         'has_archive' => true,
-        'support' => array ('editor', 'thumbnail'),
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats' ),
         'query_var' => false
       )
     );
@@ -67,7 +81,7 @@
         ),
         'public' => true,
         'has_archive' => true,
-        'support' => array ('title','editor', 'thumbnail'),
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats', 'comments' ),
         'query_var' => false
       )
     );
@@ -83,7 +97,7 @@
         ),
         'public' => true,
         'has_archive' => true,
-        'support' => array ('title','editor', 'thumbnail'),
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats' ),
         'query_var' => false
       )
     );
@@ -99,7 +113,7 @@
         ),
         'public' => true,
         'has_archive' => true,
-        'support' => array ('title','editor', 'thumbnail'),
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats' ),
         'query_var' => false
       )
     );

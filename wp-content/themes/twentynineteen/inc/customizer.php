@@ -100,6 +100,32 @@ function twentynineteen_customize_register( $wp_customize ) {
 			'type'    => 'checkbox',
 		)
 	);
+
+  $wp_customize->add_section('twentynineteen_color_scheme', array(
+    'title'    => __('Color', 'twentynineteen'),
+    'description' => '',
+    'priority' => 120,
+  ));
+
+  //  =============================
+  //  = Text Input                =
+  //  =============================
+  $wp_customize->add_setting('twentynineteen_theme_options[text_test]', array(
+    'default'        => 'test',
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('twentynineteen_text_test', array(
+    'label'      => __('Text Test!!!!', 'twentynineteen'),
+    'section'    => 'twentynineteen_color_scheme',
+    'settings'   => 'twentynineteen_theme_options[text_test]',
+  ));
+
+
+
+
 }
 add_action( 'customize_register', 'twentynineteen_customize_register' );
 
